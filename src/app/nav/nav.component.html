@@ -1,0 +1,43 @@
+
+<div>
+<nav class="navbar navbar-expand-lg bg-body-tertiary  ">
+
+    <div class="container-fluid">
+      <a class="navbar-brand text-primary" >Gotech</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link "  routerLink='home' routerLinkActive="router-link-active" >Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " routerLink='products' routerLinkActive="router-link-active" >Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  " routerLink='contact'routerLinkActive="router-link-active" >Contact</a>
+          </li>
+         
+        </ul>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          @if(!isLogin){
+          <li class="nav-item">
+            <a class="nav-link text-primary "  routerLink='../signup' routerLinkActive="router-link-active" >Signup</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-secondary" routerLink='../login' routerLinkActive="router-link-active" >Login</a>
+          </li>
+          }
+          @if(isLogin){
+          <li class="nav-item">
+            <button class="nav-link text-danger " (click)="logout()" aria-current="page">Logout</button>
+          </li>
+        }
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
