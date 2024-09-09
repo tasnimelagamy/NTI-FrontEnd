@@ -30,7 +30,7 @@ export class SignupComponent implements OnInit{
   // passwordErrors: string[] = [];
 
   signup(formData: FormGroup) {
-     this._AuthService.SignUp(formData.value).subscribe((res) => {
+     this._AuthService.signUp(formData.value).subscribe((res) => {
       if (res.token) {
         localStorage.setItem('user', res.token)
          this._AuthService.saveCurrentUser()

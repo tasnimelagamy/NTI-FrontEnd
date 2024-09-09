@@ -9,7 +9,7 @@ import { CartService } from '../services/cart.service';
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [CurrencyPipe, RouterLink],
+  imports: [CurrencyPipe,  RouterLink],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
 })
@@ -20,10 +20,9 @@ export class ProductsComponent implements OnInit {
   imgDomain: string = '';
   search: string = '';
   page: number = 1;
-  constructor(private _AuthService: AuthService, private _ProductsService: ProductsService, private _CartService: CartService) { }
+  constructor(private _ProductsService: ProductsService, private _CartService: CartService) { }
 
   loadProducts() {
-    this.imgDomain = this._ProductsService.imgDomain;
     this.subscription = this._ProductsService.getProducts(16, this.page, undefined, this.search).subscribe((res) => {
       this.products = res.data;
       this.pagination = res.pagination
@@ -40,7 +39,7 @@ export class ProductsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._AuthService.checkToken()
+    this.imgDomain = this._ProductsService.productImages;
     this.loadProducts();
   }
 

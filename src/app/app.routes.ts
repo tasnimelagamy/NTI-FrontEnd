@@ -10,10 +10,12 @@ import { ProductDetailsComponent } from './products-details/products-details.com
 export const routes: Routes = [
     {path:'',redirectTo:'home',pathMatch:'full'},
     {path:'home',component:HomeComponent},
-    {path:'products',component:ProductsComponent},
-    {path:'products/:id',component:ProductDetailsComponent},
-    {path:'signup',component:SignupComponent},
-    {path:'login',component:LoginComponent},
-    {path:'**',component:NotfoundComponent},
+    { path: 'products', loadComponent: () => import('./products/products.component').then(m => m.ProductsComponent) },
+    { path: 'products/:id', loadComponent: () => import('./products-details/products-details.component').then(m => m.ProductDetailsComponent) },
+    { path: 'myReviews', canActivate: [authGuard], loadComponent: () => import('./reviews/reviews.component').then(m => m.ReviewsComponent) },
+    { path: 'signup', loadComponent: () => import('./signup/signup.component').then(m => m.SignupComponent) },
+    { path: 'login', loadComponent: () => import('./login/login.component').then(m => m.LoginComponent) },
+    { path: 'forgetPassword', loadComponent: () => import('./forget-password/forget-password.component').then(m => m.ForgetPasswordComponent) },
+    { path: '**', component: NotfoundComponent }
 
 ];
