@@ -21,7 +21,7 @@
             <input formControlName="email" class="form-control" type="email" placeholder="email">
             @if(signupForm.get('email')?.errors!== null && signupForm.get('email')?.touched){
                 <div class="text-danger">
-                  @if(signupForm.get('email')?.errors?.['required']){<p >email Required</p>}
+                  @if(signupForm.get('email')?.errors?.['required']){<p >Email Required</p>}
                   @if(signupForm.get('email')?.errors?.['email']){<p >invalid email</p>}
                 </div>
                }
