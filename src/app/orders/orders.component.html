@@ -1,26 +1,32 @@
-<div class="container w-50 m-auto">
-    <h2 class="text-center my-5">My Reviews</h2>
+<div class="container">
+    <h2 class="text-center my-5">My Orders</h2>
+
     <hr class="my-3">
     <table class="w-100  table-bordered ">
       <thead class="text-center table-bordered bg-primary">
         <tr class="border-bottom">
-          <th class="py-3">product</th>
-          <th>Review</th>
-          <th>Rating</th>
-          <th></th>
+          <th>products</th>
+          <th class="p-3">Delivered</th>
+          <th>Paid</th>
+          <th>Payment Method</th>
+          <th>Total Price</th>
         </tr>
       </thead>
       <tbody>
-        @for(review of reviews; track review._id){
-        <tr class="m-5 border-bottom text-center">
-          <td><img class="mx-3" width="50px" [src]="productImage+review?.product?.cover"
-              [alt]="review?.product?.name">{{review?.product?.name}}</td>
-          <td>{{review?.comment}}</td>
-          <td>{{review?.rating}}</td>
-          <td class="d-flex mx-auto">
-            <a class="button-88 btn btn-primary btn-sm rounded-3 mx-3 my-3">Update</a>
-            <button (click)="deleteReview(review._id)" class="button-2 btn btn-danger btn-sm rounded-3 my-3">Delete</button>
+        @for(order of orders; track order._id){
+        <tr class="m-5 border-bottom text-center ">
+          <td>
+            @for(item of order.cartItems; track item._id){
+            <img class="mx-3 py-2" width="50px" [src]="productImage+item?.product?.cover"
+              [alt]="item?.product?.name">{{item?.product?.name}} | Quantity {{item.quantity}}
+            <br>
+            <br>
+            }
           </td>
+          <td>@if(order.isDelivered){yes}@else{No}</td>
+          <td>@if(order.isPaid){yes}@else{No}</td>
+          <td>{{order.paymentMethod}}</td>
+          <td>{{order.totalPrice|currency}}</td>
         </tr>
         }
       </tbody>

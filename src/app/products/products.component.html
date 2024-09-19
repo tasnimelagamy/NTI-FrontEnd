@@ -1,13 +1,18 @@
-<div class="bg-black text-white container mt-4 d-flex justify-content-around align-items-center">
-    <div class="text-center m-3">
-      <h1>All Products</h1>
-    </div>
-    <img src="images/iphone.jpg" alt="iPhone">
+<div class="pt-3">
+   
+    <img src="images/elec3.jpg" alt="iPhone">
   </div>
-  
-   <div class="row m-auto container mt-4">
+ <div class="search ">
+      <input (change)="searchData(searchInput.value)" #searchInput placeholder="Search..." type="text"
+       aria-label="Search">
+       <button  type="submit">Go</button>
+       </div>
+  <div class="container">
+    <div class="header">
+     
+   <div class="products row m-auto mt-4">
     @for(product of products; track product._id){
-    <div class="card m-2 col-4" style="width: 18rem;">
+    <div class="card m-2 col-4 justify-content-center align-items-center p-2" style="width: 18rem;">
      
       <img [src]="imgDomain+product.cover" class="card-img-top w-100 h-50" [alt]="product.name">
       <div class="card-body position-relative">
@@ -15,26 +20,41 @@
         <p class="card-text">{{product.description}}</p>
         <p class="card-text">price :{{ product.price|currency}}</p>
         <p class="card-text">{{product.ratingAverage}} &star; - count {{product.ratingCount}}</p>
-        <div class="position-absolute btn-card">
-          <a  [routerLink]="['/products',product._id]"class="btn btn-primary mx-2">See More</a>
-          <button  class="btn btn-success mx-2">Add to Cart</button>
-        </div>
+        <div class="pb-5 text-warning">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+      </div>
+        
+     <div class="justify-content-start align-items-center mx-auto ">
+      <button (click)="addToCart(product._id)" type="button" class="button py-2">
+        <span class="button__text">Add Item</span>
+        <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg></span>
+      </button>
+    <a [routerLink]="['/products',product._id]" class="btn  btn-primary mt-2" >See More</a>   
+
+</div>
       </div>
     </div>
  }
   </div> 
   <div class="">
-    <ul class="pagination">
+    <ul class="pagination" style="">
       @if(pagination.prev){<li (click)="changePage(pagination.prev)" class="page-item"><button
-          class="page-link">Previous</button></li>}
+          class="page-link bg-primary text-white">Previous</button></li>}
       @if(pagination.currentPage!==1)
       {<li (click)="changePage(1)" class="page-item"><button class="page-link">1</button></li>}
-      <li class="page-item"><button class="page-link">{{pagination.currentPage}}</button></li>
+      <li class="page-item"><button class="page-link bg-primary text-white">{{pagination.currentPage}}</button></li>
       @if(pagination.currentPage!==pagination.totalPages)
       {<li (click)="changePage(pagination.totalPages!)" class="page-item"><button
-          class="page-link">{{pagination.totalPages}}</button></li>}
+          class="page-link bg-primary text-white">{{pagination.totalPages}}</button></li>}
       @if(pagination.next){<li (click)="changePage(pagination.next)" class="page-item"><button
-          class="page-link">Next</button></li>}
+          class="page-link bg-primary text-white">Next</button></li>}
     </ul>
   </div>
 
+  
+    </div><!-- header -->
+  </div><!-- cont -->

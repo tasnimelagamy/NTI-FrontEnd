@@ -1,14 +1,13 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ProductsService } from '../services/products.service';
-import { CurrencyPipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { AuthService } from '../services/auth.service';
 import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-best-sellers',
   standalone: true,
-  imports: [CurrencyPipe, RouterLink],
+  imports: [CommonModule, RouterLink],
   templateUrl: './best-sellers.component.html',
   styleUrl: './best-sellers.component.scss'
 })

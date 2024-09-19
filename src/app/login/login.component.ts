@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit{
     password: new FormControl(null, [Validators.required, Validators.minLength(6), Validators.maxLength(20)])
   })
   phoneImage: string = '';
-
   invalidLogin: string = '';
   emailErrors: string = '';
   passwordErrors: string = '';

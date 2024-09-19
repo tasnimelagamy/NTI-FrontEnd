@@ -38,7 +38,6 @@ export class ReviewsComponent implements OnInit, OnDestroy {
     this._ReviewsService.updateUserReview(reviewId, formData.value).subscribe({
       next: (res) => {
         this.loadReviews();
-       
       }
     })
   }

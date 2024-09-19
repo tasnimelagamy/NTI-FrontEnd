@@ -20,8 +20,9 @@ export class AuthService {
     }
   }
   currentUser = new BehaviorSubject(null);
-  authPhoto: string = 'images/t8.avif'
-
+  authPhoto: string = 'images/test2.jpg'
+  userPhoto: string = 'images/user.jpg'
+  errPhoto: string = 'images/err.jpg';
   saveCurrentUser() {
     const token: any = localStorage.getItem('user');
     this.currentUser.next(jwtDecode(token));

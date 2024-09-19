@@ -1,43 +1,72 @@
+<nav class="navbar navbar-expand-lg navbar-light py-3 border-bottom bg-primary ">
+  <div class="container-fluid ">
+    <a class="navbar-brand text-white">GOTECH</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+        <li class="nav-item text-white">
+          <a class="nav-link text-white" aria-current="page" routerLink='home' routerLinkActive="active"
+            ariaCurrentWhenActive="page">Home</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link text-white" aria-current="page" routerLink='products' routerLinkActive="active"
+            ariaCurrentWhenActive="page">Products</a>
+        </li>
+      </ul>
+      <div>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+           @if(!isLogin){ 
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" routerLink="account">login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" routerLink="account/signup">signup</a>
+          </li>
+           } 
+           @if(isLogin){ 
+        
 
-<div>
-<nav class="navbar navbar-expand-lg bg-body-tertiary  ">
-
-    <div class="container-fluid">
-      <a class="navbar-brand text-primary" >Gotech</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link "  routerLink='home' routerLinkActive="router-link-active" >Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " routerLink='products' routerLinkActive="router-link-active" >Products</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link  " routerLink='contact'routerLinkActive="router-link-active" >Contact</a>
-          </li>
-         
-        </ul>
+<div class="d-flex justify-content-center align-items-center">
+          
+ <div class="menu">
+  
+  <div class="item">
+    <a href="#" class="link text-white ">
+      <span> User Services </span>
+    </a>
+    <div class="submenu bg-white">
+      <div class="submenu-item ">
+        <a routerLink='profile' routerLinkActive="active" class="submenu-link"> Profile </a>
       </div>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          @if(!isLogin){
+      <div class="submenu-item">
+        <a routerLink='myOrders' routerLinkActive="active" class="submenu-link"> My Orders </a>
+      </div>
+      <div class="submenu-item">
+        <a routerLink='myReviews' routerLinkActive="active" class="submenu-link"> My Reviews</a>
+      </div>
+      <div class="submenu-item">
+      <a  routerLink="cart" routerLinkActive="active" class="submenu-link"> My Cart</a>
+      </div>
+      <div class="submenu-item">
+        <a   routerLink="wishlist" routerLinkActive="active" class="submenu-link"> wishlist</a>
+      </div>
+   
+    </div>
+  </div>
+</div>
+           
           <li class="nav-item">
-            <a class="nav-link text-primary "  routerLink='../signup' routerLinkActive="router-link-active" >Signup</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-secondary" routerLink='../login' routerLinkActive="router-link-active" >Login</a>
-          </li>
-          }
-          @if(isLogin){
-          <li class="nav-item">
-            <button class="nav-link text-danger " (click)="logout()" aria-current="page">Logout</button>
-          </li>
-        }
+                <button class="nav-link text-white " (click)="logout()" aria-current="page">logout</button>
+              </li>
+
+</div>
+
+          } 
         </ul>
       </div>
     </div>
-  </nav>
-</div>
+  </div>
+</nav>

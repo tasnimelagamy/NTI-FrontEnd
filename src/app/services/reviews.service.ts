@@ -25,7 +25,7 @@ export class ReviewsService {
       { headers: { authorization: `Bearer ${localStorage.getItem('user')}` } })
   }
 
-  updateUserReview(reviewId: string, formData: any) {
+  updateUserReview(reviewId: string, formData: any): Observable<any> {
     return this._HttpClient.put(`${this.hostName}${this.routeName}/${reviewId}`, formData, { headers: { authorization: `Bearer ${localStorage.getItem('user')}` } })
   }
 

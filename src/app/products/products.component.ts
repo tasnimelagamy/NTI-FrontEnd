@@ -37,6 +37,10 @@ export class ProductsComponent implements OnInit {
     this.page = page;
     this.loadProducts()
   }
+  searchData(data: string) {
+    this.search = data;
+    this.loadProducts()
+  }
 
   ngOnInit(): void {
     this.imgDomain = this._ProductsService.productImages;
